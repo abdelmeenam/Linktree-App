@@ -26,9 +26,10 @@ class User extends Authenticatable
         return $this->hasMany(Visit::class);
     }
 
-    //see how many visits of specific linke without visits model
+    //see all the visits for all links that the user has, without using 'links' model
     public function visits()
     {
+        // many through has 2 attrib , fisrt => class u want collect , Sec => class that the relation passes through 
         return $this->hasManyThrough(Visit::class, Link::class);
     }
 }
