@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+Auth::routes();
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
@@ -34,3 +36,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 Route::post('/visit/{link}', 'VisitController@store');
 
 Route::get('{user}', 'UserController@show');
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
