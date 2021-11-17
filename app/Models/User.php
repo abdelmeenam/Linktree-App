@@ -32,4 +32,10 @@ class User extends Authenticatable
         // many through has 2 attrib , fisrt => class u want collect , Sec => class that the relation passes through 
         return $this->hasManyThrough(Visit::class, Link::class);
     }
+
+    //return request of user data via the route you specify  
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
 }
