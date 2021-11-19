@@ -66,5 +66,7 @@ class LinkController extends Controller
 
     public function destroy(Link $link, Request $request)
     {
+        $link->delete();
+        return redirect()->to('/dashboard/links');
     }
 }
