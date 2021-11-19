@@ -11,6 +11,7 @@ class UserController extends Controller
     {
         return $user;
         // return view('home');
+
     }
 
     public function edit()
