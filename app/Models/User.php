@@ -23,7 +23,7 @@ class User extends Authenticatable
 
     public function links()
     {
-        return $this->hasMany(Visit::class);
+        return $this->hasMany(link::class);
     }
 
     //see all the visits for all links that the user has, without using 'links' model
