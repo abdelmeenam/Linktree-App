@@ -5,7 +5,7 @@
             <div class="col-12 card">
                 <div class="card-body">
                     <h2 class="card-title">Editing link</h2>
-                    <form action="/dashboard/links/{{ $link->id }}" method="post">
+                    <form action=" /dashboard/links/{{ $link->id }}" method="post">
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -24,14 +24,9 @@
                             <div class="col-12">
                                 @csrf
                                 <button type="submit" class="btn btn-primary">Update Link</button>
-                                <button type="button" class="btn btn-secondary"
-                                        onclick="event.preventDefault(); document.getElementById('delete-form').submit();">Delete Link</button>
+                                <button type="button" class="btn btn-danger"><a href="{{ url('dashboard/links/delete/ '.$link->id) }}" class="alert-link">Delete Link</a></button>
                             </div>
                         </div>
-                    </form>
-                    <form id="delete-form" method="post" action="/dashboard/links/{{ $link->id }}">
-                        @csrf
-                        @method('DELETE')
                     </form>
                 </div>
             </div>

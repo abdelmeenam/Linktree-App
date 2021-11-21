@@ -64,9 +64,12 @@ class LinkController extends Controller
         return redirect()->to('/dashboard/links');
     }
 
-    public function destroy(Link $link, Request $request)
+    public function destroy($id)
     {
-        $link->delete();
-        return redirect()->to('/dashboard/links');
+        $res = Link::where('id', $id)->delete();
+        if ($res) {
+            return redirect()->to('/dashboard/links');
+        }
+        return redirect()->back();
     }
 }
